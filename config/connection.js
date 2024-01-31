@@ -1,11 +1,6 @@
 const { connect, connection } = require('mongoose');
 
-const connectionString = ('mongodb+srv://bkness:ziggy@cluster0.pf0alen.mongodb.net/', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false,
-    useCreateIndex: true,
-  });
+const connectionString = 'mongodb+srv://bkness:ziggy@cluster0.pf0alen.mongodb.net/social_network_db'
  
 connect(connectionString);
 

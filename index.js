@@ -26,18 +26,7 @@ db.on('connected', () => {
 });
 
 db.on('error', (err) => {
-  console.error('MongoDB connection error: ${err}');
-});
-
-db.on('disconnected', () => {
-  console.log('Disconnected from MongoDB');
-});
-
-process.on('SIGINT', () => {
-  db.close(() => {
-    console.log('MongoDB connection closed due to application termination');
-    process.exit(0);
-  });
+  console.error('MongoDB connection error: Something went wrong!');
 });
 
 db.once('open', () => {
