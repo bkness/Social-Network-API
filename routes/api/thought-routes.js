@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// GET a specific thought by ID
+// get a specific thought by ID
 router.get('/:id', async (req, res) => {
   try {
     const thought = await Thoughts.findById(req.params.id);
@@ -72,6 +72,28 @@ router.delete('/:id', async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+// add reaction to thought ID 
+router.post('/:id/reactions', async (req, res) => {
+  try {
+    const thoughtId = req.params.id;
+    const { reactionBody, username } = req.body;
+
+    // find the thought by ID 
+    const thought = await Thoughts.findById(thoughtId);
+    if (!thought) {
+      return res.status(404).json({ error: 'Thought not found!' });
+    }
+    // add reaction to thoughts reaction array 
+    thought.reactions.push({ reactionBody, username });
+    await thought.save();
+
+    res.json(thought);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Oops, something went wrong'})
   }
 });
 

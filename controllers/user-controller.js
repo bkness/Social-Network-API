@@ -70,22 +70,21 @@ const userController = {
       .catch((err) => res.status(500).json(err));
   },
 
-  // add a friend to a user's friend list
-  addFriend({ params, body }, res) {
-    User.findOneAndUpdate(
-      { username: params.username },
-      { $push: { friends: body.friendId } },
-      { new: true }
-    )
-      .then((user) => {
-        if (!user) {
-          return res.status(404).json({ message: 'User not found' });
-        }
-        res.json(user);
-      })
-      .catch((err) => res.status(500).json(err));
-  },
-
+// add a friend to a user's friend list
+addFriend({ params, body }, res) {
+  User.findOneAndUpdate(
+    { username: params.username },
+    { $push: { friends: body.friendId } },
+    { new: true }
+  )
+    .then((user) => {
+      if (!user) {
+        return res.status(404).json({ message: 'User not found' });
+      }
+      res.json(user);
+    })
+    .catch((err) => res.status(500).json(err));
+},
   // remove a friend from a user's friend list
   removeFriend({ params }, res) {
     User.findOneAndUpdate(
