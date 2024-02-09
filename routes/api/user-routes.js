@@ -74,10 +74,10 @@ router.delete('/:username', async (req, res) => {
 });
 
 // add a friend to a user's friend list
-router.post('/:username/friends', async (req, res) => {
+router.post('/:username/:friendId', async (req, res) => {
   try {
-    const { friendUsername } = req.body;
     const { username } = req.params;
+    const friendId = new mongoose.Types.ObjectId(req.params.friendId);
 
     // Find the user by username
     const user = await User.findOne({ username });
@@ -85,8 +85,8 @@ router.post('/:username/friends', async (req, res) => {
       return res.status(404).json({ error: 'User not found' });
     }
 
-    // Find the friend by username
-    const friend = await User.findOne({ username: friendUsername });
+    // Find the friend by ID
+    const friend = await User.findById(friendId);
     if (!friend) {
       return res.status(404).json({ error: 'Friend not found' });
     }
