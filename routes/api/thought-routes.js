@@ -97,4 +97,26 @@ router.post('/:id/reactions', async (req, res) => {
   }
 });
 
+// delete a reaction from a thought 
+router.delete('/:thoughtId/reactions/:reactionId', async (req, res) => {
+  try {
+    const { thoughtId, reactionId } = req.params;
+
+    // find the thought by ID 
+    const thought = await Thoughts.findById(thoughtId);
+    if (!thought) {
+      return res.status(404).json({ error: 'Thought not found!' });
+    }
+
+    // remove the reaction from the thought's reactions array 
+    thought.reactions = thought.reactions.filter(reaction => !reaction.reactionId.equals(reactionId));
+    await thought.save();
+
+    res.json(thought);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Oops, something went wrong'})
+  }
+});
+
 module.exports = router;
