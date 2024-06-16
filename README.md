@@ -1,8 +1,7 @@
 # Social Network API
 
-
 ## Description 
-This is an app I created to help advance my skills with MongoDB
+This API is a social network web application backend designed to enhance proficiency with MongoDB, Express.js, and Mongoose. Developed and tested using Insomnia, it facilitates users in sharing thoughts, reacting to friends' posts, and managing friend lists. Ideal for developers seeking hands-on experience in building robust web applications with modern technologies.
 
 ## Table of Contents 📝
 
