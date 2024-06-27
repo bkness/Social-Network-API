@@ -52,20 +52,20 @@ Delete a user by username
 
 ### Thoughts
 Get all thoughts
->GET /api/thoughts
+`GET /api/thoughts`
 Get a single thought
->GET /api/thoughts/:id
+`GET /api/thoughts/:id`
 Add a thought
->POST /api/thoughts
+`POST /api/thoughts`
 Update a thought
->PUT /api/thoughts/:id
+`PUT /api/thoughts/:id`
 Delete a thought
->DELETE /api/thoughts/:id
+`DELETE /api/thoughts/:id`
 
 ### Friends
 To add a friend 
 
->POST /:username/:friendId
+`POST /:username/:friendId`
 
 To delete a friend
 
