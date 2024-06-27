@@ -13,16 +13,16 @@ This API is a social network web application backend designed to enhance profici
 - [Questions](#questions-📝)
 
 ## Installation 
->npm install
+`npm install`
 
 ## Usage
 To use the API, you will need to connect to your MongoDB Atlas cluster and configure the environment variables in a .env file. Once your database is set up, you can start the server by running:
 
->npm start
+`npm start`
 
 ## Test 
 
->npm test
+`npm test`
 
 ## Contributing
 Fork the project and open a pull request with your new code
@@ -32,23 +32,23 @@ Fork the project and open a pull request with your new code
 ### Users
 Get all users
 
->GET /api/users
+`GET /api/users`
 
 Get a single user by username 
 
->GET /api/users/:username
+`GET /api/users/:username`
 
 Add a new user
 
->POST /api/users
+`POST /api/users`
 
 Update a user by username
 
->PUT /api/users/:username
+`PUT /api/users/:username`
 
 Delete a user by username
 
->DELETE /api/users/:username
+`DELETE /api/users/:username`
 
 ### Thoughts
 Get all thoughts
@@ -69,16 +69,16 @@ To add a friend
 
 To delete a friend
 
->DELETE /api/users/:username/friends/:friendId
+`DELETE /api/users/:username/friends/:friendId`
 
 ### Reactions 
 To add a reaction 
 
->POST /api/thoughts/:id/reactions
+`POST /api/thoughts/:id/reactions`
 
 To delete a reaction
 
->DELETE /api/thoughts/:thoughtId/reactions/:reactionId
+`DELETE /api/thoughts/:thoughtId/reactions/:reactionId`
 
 ## Deployed 
 The GitHub code can be viewed [here](https://github.com/bkness/Social-Network-API). 
